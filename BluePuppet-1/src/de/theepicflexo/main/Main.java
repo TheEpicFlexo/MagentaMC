@@ -11,5 +11,6 @@ public class Main extends JavaPlugin{
 		Bukkit.getConsoleSender().sendMessage(">>");
 		Bukkit.getConsoleSender().sendMessage("§8[BluePuppet] Aktiviert!");
 		Bukkit.getConsoleSender().sendMessage(">>");
+		Bukkit.getConsoleSender().sendMessage("test");
 	}
 }
