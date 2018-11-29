@@ -9,8 +9,8 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 
 		Bukkit.getConsoleSender().sendMessage(">>");
-		Bukkit.getConsoleSender().sendMessage("§8[BluePuppet] Aktiviert!");
+		Bukkit.getConsoleSender().sendMessage("§8[BluePuppet] §aLobby wurde Aktiviert!");
 		Bukkit.getConsoleSender().sendMessage(">>");
-		Bukkit.getConsoleSender().sendMessage("test");
+		
 	}
 }
