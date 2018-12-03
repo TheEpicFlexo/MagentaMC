@@ -13,7 +13,7 @@ public class Join implements Listener{
 		if(p.hasPlayedBefore()) {
 			e.setJoinMessage(null);
 		} else {
-			
+			e.setJoinMessage("§aHerzlich Willkommen " + p.getName());
 		}
 	}
 }

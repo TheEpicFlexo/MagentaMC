@@ -19,7 +19,7 @@ public class MySQL {
 		if (!isConnected()) {
 			try {
 				con = DriverManager.getConnection("jdbc:mysql://" + host + ":3306/" + database, user, password);
-				System.out.println("§8[BluePuppet] §7- Lobby - §aMySQL Verbunden");
+				System.out.println("§8[LOBBY] - §aMySQL Verbunden");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -31,7 +31,7 @@ public class MySQL {
 			try {
 				con.close();
 			} catch (SQLException e) {
-				System.out.println("§8[BluePuppet] §7- Lobby - §aMySQL Verbindung getrennt");
+				System.out.println("§8[LOBBY] - §aMySQL Verbindung getrennt");
 				e.printStackTrace();
 			}
 
