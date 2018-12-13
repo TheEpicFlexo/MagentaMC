@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.bukkit.Bukkit;
+
 import com.mysql.jdbc.PreparedStatement;
 
 public class MySQL {
@@ -19,7 +21,7 @@ public class MySQL {
 		if (!isConnected()) {
 			try {
 				con = DriverManager.getConnection("jdbc:mysql://" + host + ":3306/" + database, user, password);
-				System.out.println("§8[LOBBY] - §aMySQL Verbunden");
+				Bukkit.getConsoleSender().sendMessage("§8[LOBBY] - §aMySQL Verbunden");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -31,7 +33,7 @@ public class MySQL {
 			try {
 				con.close();
 			} catch (SQLException e) {
-				System.out.println("§8[LOBBY] - §aMySQL Verbindung getrennt");
+				Bukkit.getConsoleSender().sendMessage("§8[LOBBY] - §aMySQL Verbindung getrennt");
 				e.printStackTrace();
 			}
 
