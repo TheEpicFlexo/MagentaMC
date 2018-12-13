@@ -1,6 +1,7 @@
 package de.theepicflexo.main;
 
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,13 +12,18 @@ import de.theepicflexo.listener.Damage;
 import de.theepicflexo.listener.FoodLevelChange;
 import de.theepicflexo.listener.InventoryClick;
 import de.theepicflexo.listener.Join;
+import de.theepicflexo.listener.ProjectileLaunch;
 import de.theepicflexo.listener.Quit;
 import de.theepicflexo.sql.MySQL;
 import de.theepicflexo.sql.MySQLconfig;
 
 public class Main extends JavaPlugin {
+
+	public static Plugin plugin;
+
 	@Override
 	public void onEnable() {
+		plugin = this;
 		MySQLconfig file = new MySQLconfig();
 		file.setStandart();
 		file.readData();
@@ -31,6 +37,7 @@ public class Main extends JavaPlugin {
 		p.registerEvents(new Click(), this);
 		p.registerEvents(new FoodLevelChange(), this);
 		p.registerEvents(new Damage(), this);
+		p.registerEvents(new ProjectileLaunch(), this);
 		MySQL.connect();
 		// MySQL.update("CREATE TABLE IF NOT EXISTS coins (uuid VARCHAR, coins INT,
 		// playername VARCHAR))");
