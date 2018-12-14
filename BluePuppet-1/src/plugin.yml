@@ -2,3 +2,5 @@ name: Lobby
 version: 1.0
 main: de.theepicflexo.main.Main
 author: TheEpicFlexo
+commands:
+  coins:

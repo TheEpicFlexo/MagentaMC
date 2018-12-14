@@ -9,6 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
+import org.inventivetalent.tabapi.TabAPI;
 
 public class Join implements Listener {
 
@@ -18,7 +20,6 @@ public class Join implements Listener {
 		ItemMeta telemeta = teleitem.getItemMeta();
 		telemeta.setDisplayName("§7Teleporter");
 		teleitem.setItemMeta(telemeta);
-
 		Player p = e.getPlayer();
 
 		p.setGameMode(GameMode.ADVENTURE);
@@ -44,4 +45,5 @@ public class Join implements Listener {
 			p.getInventory().setItem(1, teleitem);
 		}
 	}
+
 }

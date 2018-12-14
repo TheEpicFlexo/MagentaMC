@@ -1,9 +1,11 @@
 package de.theepicflexo.main;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.inventivetalent.tabapi.TabAPI;
 
 import de.theepicflexo.listener.Achievement;
 import de.theepicflexo.listener.BedEnter;
@@ -16,6 +18,7 @@ import de.theepicflexo.listener.ProjectileLaunch;
 import de.theepicflexo.listener.Quit;
 import de.theepicflexo.sql.MySQL;
 import de.theepicflexo.sql.MySQLconfig;
+import net.minecraft.server.v1_8_R3.MinecraftServer;
 
 public class Main extends JavaPlugin {
 
@@ -28,6 +31,15 @@ public class Main extends JavaPlugin {
 		file.setStandart();
 		file.readData();
 
+		Bukkit.getScheduler().scheduleSyncRepeatingTask((Plugin) this, new Runnable() {
+			@Override
+			public void run() {
+				for (Player pps : Bukkit.getOnlinePlayers()) {
+					setHeaderAndFooter(pps);
+				}
+
+			}
+		}, 10, 10);
 		PluginManager p = Bukkit.getPluginManager();
 		p.registerEvents(new Join(), this);
 		p.registerEvents(new Quit(), this);
@@ -38,16 +50,33 @@ public class Main extends JavaPlugin {
 		p.registerEvents(new FoodLevelChange(), this);
 		p.registerEvents(new Damage(), this);
 		p.registerEvents(new ProjectileLaunch(), this);
-		MySQL.connect();
-		// MySQL.update("CREATE TABLE IF NOT EXISTS coins (uuid VARCHAR, coins INT,
-		// playername VARCHAR))");
 
+		motd();
 		Bukkit.getConsoleSender().sendMessage("§8[LOBBY] §aPlugin wurde Aktiviert!");
 
 	}
 
 	@Override
 	public void onDisable() {
-		 MySQL.disconnect();
+
 	}
+
+	private void motd() {
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+
+			@Override
+			public void run() {
+				MinecraftServer.getServer()
+						.setMotd("§d§lMagenta§5§lMC §8× §7Dein Servernetzwerk §8× §e1.8.x §8× §bMinigames Server");
+			}
+		}, 20 * 3, 20 * 3);
+	}
+
+	public void setHeaderAndFooter(Player p) {
+		TabAPI.setHeader(p,
+				" " + " \n    §aHerzlich Willkommen, §b" + p.getName() + "    \n§aMagentaMC.de §8- §aLobby\n ");
+		TabAPI.setFooter(p,
+				" \n§bOnline: §7" + Bukkit.getOnlinePlayers().size() + "§8/§7" + Bukkit.getMaxPlayers() + "\n ");
+	}
+
 }

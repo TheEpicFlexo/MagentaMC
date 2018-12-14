@@ -32,5 +32,6 @@ public class InventoryClick implements Listener {
 				e.setCancelled(false);
 			}
 		}
+		e.setCancelled(true);
 	}
 }

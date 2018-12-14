@@ -20,9 +20,27 @@ public class Fill {
 		ItemMeta bedmeta = beditem.getItemMeta();
 		bedmeta.setDisplayName("§c§lBed§7§lWars");
 		beditem.setItemMeta(bedmeta);
+		
+		ItemStack spawnitem = new ItemStack(Material.DIAMOND);
+		ItemMeta spawnmeta = spawnitem.getItemMeta();
+		spawnmeta.setDisplayName("§a§lSpawn");
+		spawnitem.setItemMeta(spawnmeta);
+
+		ItemStack comingsoonitem = new ItemStack(Material.BARRIER);
+		ItemMeta comingsoonmeta = comingsoonitem.getItemMeta();
+		comingsoonmeta.setDisplayName("§cComing Soon");
+		comingsoonitem.setItemMeta(comingsoonmeta);
 
 		// SetItem
-		teleporter.setItem(10, beditem);
+		teleporter.setItem(22, spawnitem);
+		teleporter.setItem(4, comingsoonitem);
+		teleporter.setItem(10, comingsoonitem);
+		teleporter.setItem(16, comingsoonitem);
+		teleporter.setItem(28, comingsoonitem);
+		teleporter.setItem(34, comingsoonitem);
+		teleporter.setItem(40, comingsoonitem);
+
+
 
 		for (int i = 0; i < teleporter.getSize(); i++) {
 			if (teleporter.getItem(i) == null) {
