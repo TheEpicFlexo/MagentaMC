@@ -1,9 +1,7 @@
 name: Lobby
-version: 1.0
+version: 1.5
 main: de.theepicflexo.main.Main
 author: TheEpicFlexo
 commands:
-  coins:
   setwarp:
   ts:
-  teamspeak:

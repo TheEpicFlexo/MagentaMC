@@ -109,7 +109,6 @@ public class SetWarp implements CommandExecutor {
 			} else {
 				p.sendMessage("§8[§bLobby§8] §cDas darfst du nicht!");
 			}
-			de.theepicflexo.main.Main.setInt();
 			de.theepicflexo.main.Main.plugin.onEnable();
 		}
 		return false;
