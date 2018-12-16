@@ -4,3 +4,6 @@ main: de.theepicflexo.main.Main
 author: TheEpicFlexo
 commands:
   coins:
+  setwarp:
+  ts:
+  teamspeak:

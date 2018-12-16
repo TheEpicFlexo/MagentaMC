@@ -18,8 +18,19 @@ public class Join implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		ItemStack teleitem = new ItemStack(Material.NETHER_STAR);
 		ItemMeta telemeta = teleitem.getItemMeta();
-		telemeta.setDisplayName("§7Teleporter");
+		telemeta.setDisplayName("§7§lTeleporter");
 		teleitem.setItemMeta(telemeta);
+
+		ItemStack barrieritem = new ItemStack(Material.BARRIER);
+		ItemMeta barriermeta = barrieritem.getItemMeta();
+		barriermeta.setDisplayName("§c§lkein Gadget");
+		barrieritem.setItemMeta(barriermeta);
+
+		ItemStack ecitem = new ItemStack(Material.ENDER_CHEST);
+		ItemMeta ecmeta = ecitem.getItemMeta();
+		ecmeta.setDisplayName("§5§lGadgets");
+		ecitem.setItemMeta(ecmeta);
+
 		Player p = e.getPlayer();
 
 		p.setGameMode(GameMode.ADVENTURE);
@@ -39,10 +50,15 @@ public class Join implements Listener {
 		p.sendMessage(" ");
 		if (p.hasPlayedBefore()) {
 			e.setJoinMessage(null);
-			p.getInventory().setItem(1, teleitem);
+			p.getInventory().setItem(0, teleitem);
+			p.getInventory().setItem(2, barrieritem);
+			p.getInventory().setItem(3, ecitem);
 		} else {
 			e.setJoinMessage("§aHerzlich Willkommen " + p.getName());
-			p.getInventory().setItem(1, teleitem);
+			p.getInventory().setItem(0, teleitem);
+			p.getInventory().setItem(2, barrieritem);
+			p.getInventory().setItem(3, ecitem);
+
 		}
 	}
 

@@ -20,16 +20,22 @@ public class Click implements Listener {
 			if (p.getGameMode().equals(GameMode.ADVENTURE)) {
 				if (e.getItem() != null) {
 					if (e.getItem().hasItemMeta()) {
-						if (e.getItem().getItemMeta().getDisplayName().equals("§7Teleporter")) {
+						if (e.getItem().getItemMeta().getDisplayName().equals("§7§lTeleporter")) {
 							Fill.fillCompass(p);
+							e.setCancelled(true);
+						} else if(e.getItem().getItemMeta().getDisplayName().equals("§5§lGadgets")) {
+							Fill.fillGadgets(p);
 							e.setCancelled(true);
 						} else {
 							e.setCancelled(false);
+
 						}
 					} else {
 						e.setCancelled(false);
 					}
 				}
+			} else if(p.getGameMode().equals(GameMode.CREATIVE)){
+				e.setCancelled(false);
 			}
 		} else {
 			e.setCancelled(true);

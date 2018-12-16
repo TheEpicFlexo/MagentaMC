@@ -37,8 +37,6 @@ public class MySQLconfig {
 		MySQL.database = cfg.getString("database");
 		MySQL.user = cfg.getString("username");
 		MySQL.password = cfg.getString("password");
-
-	
 	}
 	
 	
