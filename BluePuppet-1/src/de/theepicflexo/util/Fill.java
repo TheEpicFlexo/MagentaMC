@@ -25,7 +25,7 @@ public class Fill {
 		bedmeta.setLore(cs);
 		bedmeta.setDisplayName("§4§lBed§r§lWars");
 		beditem.setItemMeta(bedmeta);
-		
+
 		ItemStack grassitem = new ItemStack(Material.GRASS);
 		ItemMeta grassmeta = grassitem.getItemMeta();
 		grassmeta.setLore(cs);
@@ -36,7 +36,7 @@ public class Fill {
 		ItemMeta spawnmeta = spawnitem.getItemMeta();
 		spawnmeta.setDisplayName("§a§lSpawn");
 		spawnitem.setItemMeta(spawnmeta);
-		
+
 		ItemStack stickitem = new ItemStack(Material.STICK);
 		ItemMeta stickmeta = stickitem.getItemMeta();
 		stickmeta.setLore(null);
@@ -76,8 +76,19 @@ public class Fill {
 	public static void fillGadgets(Player p) {
 		Inventory gadgets = Bukkit.createInventory(null, 9 * 5, "§5§lGadgets");
 
-		for (int i = 0; i < gadgets.getSize(); i++) {
+		ItemStack EPitem = new ItemStack(Material.ENDER_PEARL);
+		ItemMeta EPmeta = EPitem.getItemMeta();
+		EPmeta.setDisplayName("§5§lEnderPearl");
+		EPitem.setItemMeta(EPmeta);
+
+		ItemStack barrieritem = new ItemStack(Material.BARRIER);
+		ItemMeta barriermeta = barrieritem.getItemMeta();
+		barriermeta.setDisplayName("§c§lGadget entfernen");
+		barrieritem.setItemMeta(barriermeta);
+
+		for (int i = 0; i < gadgets.getSize() - 9; i++) {
 			if (gadgets.getItem(i) == null) {
+
 				ItemStack glassitem = new ItemStack(Material.STAINED_GLASS_PANE);
 				ItemMeta glassmeta = glassitem.getItemMeta();
 				glassmeta.addEnchant(Enchantment.ARROW_FIRE, 0, false);
@@ -86,7 +97,8 @@ public class Fill {
 				gadgets.setItem(i, glassitem);
 			}
 		}
-
+		gadgets.setItem(10, EPitem);
+		gadgets.setItem(40, barrieritem);
 		p.openInventory(gadgets);
 	}
 }

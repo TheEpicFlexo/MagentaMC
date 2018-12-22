@@ -12,6 +12,8 @@ import de.theepicflexo.commands.TeamSpeak;
 import de.theepicflexo.listener.Achievement;
 import de.theepicflexo.listener.BedEnter;
 import de.theepicflexo.listener.Damage;
+import de.theepicflexo.listener.Drop;
+import de.theepicflexo.listener.EPInteract;
 import de.theepicflexo.listener.FoodLevelChange;
 import de.theepicflexo.listener.Interact;
 import de.theepicflexo.listener.InventoryClick;
@@ -52,6 +54,8 @@ public class Main extends JavaPlugin {
 		p.registerEvents(new Interact(), this);
 		p.registerEvents(new FoodLevelChange(), this);
 		p.registerEvents(new Damage(), this);
+		p.registerEvents(new Drop(), this);
+		p.registerEvents(new EPInteract(), this);
 
 		MinecraftServer.getServer().setSpawnAnimals(false);
 		MinecraftServer.getServer().setSpawnNPCs(false);

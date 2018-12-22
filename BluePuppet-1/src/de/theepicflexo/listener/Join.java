@@ -54,7 +54,14 @@ public class Join implements Listener {
 			p.getInventory().setItem(2, barrieritem);
 			p.getInventory().setItem(3, ecitem);
 		} else {
-			e.setJoinMessage("§aHerzlich Willkommen " + p.getName());
+		
+			Bukkit.broadcastMessage("§k§7awdwadwadwadwadwadwadwadwadawdwadwadwad");
+			Bukkit.broadcastMessage(" ");
+			Bukkit.broadcastMessage("§aHerzlich Willkommen auf §5Magenta§dMC§5.de");
+			Bukkit.broadcastMessage("§b" + p.getName());
+			Bukkit.broadcastMessage(" ");
+			Bukkit.broadcastMessage("§k§7awdwadwadwadwadwadwadwadwadawdwadwadwad");
+
 			p.getInventory().setItem(0, teleitem);
 			p.getInventory().setItem(2, barrieritem);
 			p.getInventory().setItem(3, ecitem);
